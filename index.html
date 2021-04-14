@@ -2,35 +2,35 @@
 <html lang="ja">
 <head><meta charset="UTF-8"></head>
 <body>
-<p><strong>�E�}��������K�v�X�^�~�i�v�Z�@</strong></p>
+<p><strong>ウマ娘非公式必要スタミナ計算機</strong></p>
 
-<p>�{�y�[�W�ł́A �G�A�[�}�����ɂ��<a href= "https://note.com/earman178/n/n19a8dc5c1b32" >�E�}����͈ꕔ�|��(���x�v�Z���A�����x�v�Z���A�̗͌v�Z��)</a> ����ь��ƂȂ���������͂ɂ��A�S���������������ɑ���؂�ׂɕK�v�ȃX�^�~�i���v�Z�ł��܂��B</p>
+<p>本ページでは、 エアーマン氏による<a href= "https://note.com/earman178/n/n19a8dc5c1b32" >ウマ娘解析一部翻訳(速度計算式、加速度計算式、体力計算式)</a> および元となった中国解析により、全距離を失速せずに走り切る為に必要なスタミナを計算できます。</p>
 
-<p>���������ۂ̕K�v�X�^�~�i�l�́A���ꍏ�ƕω����鑬�x�ɂ��b�ԕK�v�X�^�~�i�𑫂����킹�����̂ƂȂ� ���[�U������Q�ƕs�\�Ȃ��߁A���̉���̉��A�v�Z���Ă��܂��B</p>
+<p>ただし実際の必要スタミナ値は、刻一刻と変化する速度による秒間必要スタミナを足し合わせたものとなり ユーザ側から参照不能なため、次の仮定の下、計算しています。</p>
 
-<p>�ʏ펞�̓|�W�V�����L�[�v����B�S�̂�2/3�̋������߂�����X�p�[�g����B</p>
-<p>�v�Z�̓s����A�œK����r���K���ȂǊȗ������Ă��镔��������܂��B</p>
-<p>���������Đ��S���x�̂���͓��R�N���肤����̂Ƃ��āA�Q�l�܂łɂ����p���������B</p>
-<p class="title">�E�}��������K�v�X�^�~�i�v�Z�@Ver0.01</p>
+<p>通常時はポジションキープする。全体の2/3の距離が過ぎたらスパートする。</p>
+<p>計算の都合上、芝適正や脚質適正など簡略化している部分があります。</p>
+<p>したがって数百程度のずれは当然起こりうるものとして、参考までにご利用ください。</p>
+<p class="title">ウマ娘非公式必要スタミナ計算機Ver0.01</p>
     <div id="area1">
-      �X�s�[�h(1-1200)<input type="tel" name="speedInput" id="speedInput" maxlength="4"/></br>
-      ����(1-1200)<input type="tel" name="gutsInput" id="gutsInput" maxlength="4"/></br>
-      <label for="motivation">���C</label>
+      スピード(1-1200)<input type="tel" name="speedInput" id="speedInput" maxlength="4"/></br>
+      根性(1-1200)<input type="tel" name="gutsInput" id="gutsInput" maxlength="4"/></br>
+      <label for="motivation">やる気</label>
       <select id="motivation">
-      <option value="1.1">��D��</option>
-      <option value="1.05">�D��</option>
-      <option value="1.0">����</option>
-      <option value="0.98">�s��</option>
-      <option value="0.95">��s��</option>
+      <option value="1.1">絶好調</option>
+      <option value="1.05">好調</option>
+      <option value="1.0">普通</option>
+      <option value="0.98">不調</option>
+      <option value="0.95">絶不調</option>
       </select>
-      <label for="running_style">�r��</label>
+      <label for="running_style">脚質</label>
       <select id="running_style">
-      <option value="0.95">����</option>
-      <option value="0.89">��s</option>
-      <option value="1.00">����</option>
-      <option value="0.995">�Ǎ�</option>
+      <option value="0.95">逃げ</option>
+      <option value="0.89">先行</option>
+      <option value="1.00">差し</option>
+      <option value="0.995">追込</option>
       </select>
-      <label for="distance">���[�X����</label>
+      <label for="distance">レース距離</label>
       <select id="distance">
       <option value="1000">1000m</option>
       <option value="1200">1200m</option>
@@ -48,7 +48,7 @@
       <option value="3400">3400m</option>
       <option value="3600">3600m</option>
       </select>
-      <label for="distance_adequate">�����K���␳</label>
+      <label for="distance_adequate">距離適性補正</label>
       <select id="distance_adequate">
       <option value="1.05">S</option>
       <option value="1.00" selected>A</option>
@@ -60,13 +60,13 @@
       <option value="0.10">G</option>
       </select>
 
-      <button type="button" id="btn1">�K�v�X�^�~�i���v�Z</button>
+      <button type="button" id="btn1">必要スタミナを計算</button>
       <br>
-      �K�v�X�^�~�i<input type="text" id="tBox" class="font-main" /></br>
-      ���񕜃X�L���񕜃X�^�~�i��<input type="text" id="tBox2" class="font-main" /></br>
-      ���񕜃X�L���񕜃X�^�~�i��<input type="text" id="tBox3" class="font-main" /></br>
-      ���񕜃X�L���́A�~�ʂ̃}�G�X�g���A�H������V�A�D�@��]�ȂǁA</br>
-      ���񕜃X�L���́A�R�[�i�[�񕜁A�h�{�⋋�A�����񕜂Ȃǂ̃X�L����\���܂��B
+      必要スタミナ<input type="text" id="tBox" class="font-main" /></br>
+      金回復スキル回復スタミナ量<input type="text" id="tBox2" class="font-main" /></br>
+      白回復スキル回復スタミナ量<input type="text" id="tBox3" class="font-main" /></br>
+      金回復スキルは、円弧のマエストロ、食いしん坊、好機一転など、</br>
+      白回復スキルは、コーナー回復、栄養補給、直線回復などのスキルを表します。
     </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/calc.js"></script>
